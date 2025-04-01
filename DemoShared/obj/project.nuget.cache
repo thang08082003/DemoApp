@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6XkHp1H3Ccg=",
+  "success": true,
+  "projectFilePath": "D:\\DemoApp\\DemoApp\\DemoShared\\DemoShared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\babyi\\.nuget\\packages\\csvhelper\\31.0.4\\csvhelper.31.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

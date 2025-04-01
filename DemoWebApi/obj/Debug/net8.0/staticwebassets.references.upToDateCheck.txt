@@ -1,0 +1,12 @@
+D:\DemoApp\InternShipApp-master\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\InternShipApp-master\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\InternShipApp-master\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\InternShipApp-master\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\InternShipApp-master\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\InternShipApp-master\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\InternShipApp-master\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\InternShipApp-master\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\InternShipApp-master\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\DemoApp\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\DemoApp\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json
+D:\DemoApp\DemoApp\DemoWeb\obj\Debug\net8.0\staticwebassets.build.json

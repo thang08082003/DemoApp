@@ -1,0 +1,630 @@
+﻿
+/* BASIC */
+
+html {
+    background-color: #56baed;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    background-color: #9CD6FF !important;
+}
+
+a {
+    color: #92badd;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 40px 8px 10px 8px;
+    color: #cccccc;
+}
+
+.row {
+    margin-left: 5px;
+}
+
+/* STRUCTURE */
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: left;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+}
+
+#formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+}
+
+#formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+
+
+/* TABS */
+
+h2.inactive {
+    color: #cccccc;
+}
+
+h2.active {
+    color: #0d0d0d;
+    border-bottom: 2px solid #5fbae9;
+}
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+        background-color: #39ace7;
+    }
+
+    input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+    .fadeIn.first {
+        -webkit-animation-delay: 0.4s;
+        -moz-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+
+    .fadeIn.second {
+        -webkit-animation-delay: 0.6s;
+        -moz-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+    }
+
+    .fadeIn.third {
+        -webkit-animation-delay: 0.8s;
+        -moz-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+    }
+
+    .fadeIn.fourth {
+        -webkit-animation-delay: 1s;
+        -moz-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s;
+}
+
+.underlineHover:hover {
+    color: #0d0d0d;
+}
+
+    .underlineHover:hover:after {
+        width: 100%;
+    }
+
+
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+}
+
+#icon {
+    width: 60%;
+}
+
+.maxheight {
+    max-height: calc(100vh - 50px);
+}
+
+.form-control:focus {
+    color: var(--bs-body-color) !important;
+    background-color: var(--bs-body-bg) !important;
+    border-color: #dee2e6 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.form-check-input:focus {
+    border-color: #dee2e6 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.cus-button-width {
+    width: 100px;
+}
+
+/* Custom CSS */
+.btn-pink {
+    background-color: #C287FF !important;
+    border-color: #C287FF !important;
+    color: #fff !important;
+}
+
+.bb-scrollbar {
+    background-color: #4DA6FF !important;
+}
+
+.bb-sidebar nav .nav-item > a {
+    color: #fff !important;
+}
+
+.bb-sidebar nav .nav-item > a:hover {
+    background-color: #FFFFFF !important;
+    color: #4DA6FF !important;
+}
+
+.bb-sidebar-top-row {
+    height: 3.5rem;
+    background-color: #4DA6FF !important;
+    border-bottom: #4DA6FF !important;
+    border-right: #F7F7F7 !important
+}
+
+.btn-pink:hover {
+    background-color: #D87EFF !important;
+    border-color: #D87EFF !important;
+    color: #fff !important;
+}
+
+.card-cus-size-width {
+    max-width: 100%;
+    min-height: 800px;
+}
+
+.modal-confirm {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50% !important;
+    left: 150px !important;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.3rem;
+    outline: 0;
+    width: 100% !important;
+    left: 0px !important;
+}
+
+.modal-content-top-50 {
+    top: 50px;
+}
+
+.modal_overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, .5);
+}
+
+.card-cus-size-center-width-300 {
+    max-width: 300px !important;
+    min-height: 500px !important;
+}
+
+.fade-modal-open {
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.8s;
+    animation-name: animatetop;
+    animation-duration: 0.8s;
+}
+
+.font-size-cus {
+    font-size: larger;
+}
+
+.required {
+    color: red;
+}
+
+.card-cus-size-center-width-650 {
+    max-width: 650px !important;
+    min-height: 500px !important;
+}
+
+.col-sm-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+}
+
+.top-row > a {
+    margin-left: 5px !important;
+}
+
+.chart {
+    width: 500px !important;
+    height: 300px !important;
+}
+
+.dropdown {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -moz-appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+/* Login Layout */
+
+.login-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .login-container {
+        max-width: 720px;
+    }
+
+    .login-p-md-5 {
+        padding: 3rem !important;
+    }
+}
+
+.login-body {
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: normal;
+    background: #f8f9fd;
+    color: gray;
+}
+
+.login-justify-content-center {
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+}
+
+.login-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.login-col-md-7 {
+    top: 250px !important;
+    width: 500px !important;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.login-wrap {
+    position: relative;
+    background: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+}
+
+.login-d-flex {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.login-form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+    .login-form-group .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 48px;
+        height: 48px;
+        background: #EAECF4;
+        font-size: 20px;
+        border-radius: 5px 0 0 5px;
+    }
+
+.login-align-items-center {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.login-form-control {
+    width: 100%;
+    height: 48px;
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    border-radius: 5px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 60px !important;
+}
+
+.login-rounded-left {
+    border-top-left-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+}
+
+.login-p-4 {
+    padding: 1.5rem !important;
+}
+
+.login-header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+.image {
+    margin-bottom: 0.5rem;
+    width: 150px;
+    height: 150px;
+    border-style: dashed;
+    border-color: #ffc107;
+}
+
+/* Custom Button import CSV */
+
+.upload {
+    border: 1px solid #adb5bd;
+    width: 100%;
+    background-color: #E9EDF0 !important;
+    padding: 12px 0 12px 12px;
+}
+
+.cus-btn {
+    width: 65px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: #0d6efd;
+    border-color: #0d6efd !important;
+    color: #fff;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-font-smoothing: antialiased;
+    border: 1px solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px;
+    font-weight: 400;
+    -ms-flex-pack: center;
+    justify-content: center;
+    line-height: 1.6em;
+    outline: none;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.cus-file-select {
+    display: inline-block;
+}
+
+.cus-control {
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.cus-uploader {
+    opacity: 0;
+}
+
+.cus-input {
+    border: hidden;
+    background: border-box;
+}
+
+.cus-icon {
+    position: absolute;
+    left: 390px;
+    bottom: 10px;
+    background: none;
+    border: hidden;
+    font-size:larger;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.cus-icon-old {
+    position: absolute;
+    left: 558px;
+    bottom: 216px;
+    background: none;
+    border: hidden;
+    font-size: larger;
+}
+
+.cus-icon-new {
+    position: absolute;
+    left: 558px;
+    bottom: 162px;
+    background: none;
+    border: hidden;
+    font-size: larger;
+}
+
+.cus-icon-confirm {
+    position: absolute;
+    left: 558px;
+    bottom: 110px;
+    background: none;
+    border: hidden;
+    font-size: larger;
+}

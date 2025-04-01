@@ -1,0 +1,98 @@
+.bb-scrollbar {
+    background-color: #4DA6FF !important;
+}
+
+.navbar-toggler {
+    background-color: #4DA6FF;
+}
+
+.top-row {
+    height: 3rem;
+}
+
+.nav-icon {
+    margin-left: 15px;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    color:azure;
+    font-weight: bold;
+}
+
+.container-fluid {
+    margin-top: 5px;
+}
+
+.bi {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 15px;
+    top: -1px;
+    background-size: cover;
+}
+
+.nav-item {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item ::deep a {
+        color: white;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        /*align-items: center;*/
+        line-height: 3rem;
+        cursor: pointer;
+    }
+
+    .nav-item ::deep a.active {
+        background-color: rgba(255,255,255,0.37);
+        color: white;
+    }   
+
+    .nav-item ::deep a:hover {
+        background-color: white;
+        color: #4DA6FF;
+    }
+
+@media (min-width: 641px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .collapse {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+    
+    .nav-scrollable {
+        /* Allow sidebar to scroll for tall menus */
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+    }
+}
+
+.cus-icon-dropdown {
+    margin-left: auto;
+}
+
+.rotate-icon-right {
+    transform: rotate(90deg);
+}
+
+.rotate-icon-down {
+    transform: rotate(0deg);
+}

@@ -1,0 +1,54 @@
+﻿@using DemoShared.Models.Entities;
+@using DemoShared.Constants;
+
+@if (show)
+{
+    <div class="modal modal_overlay show d-block" tabindex="-1" role="dialog">
+        <div class="modal-dialog card-cus-size-center-width-300 fade-modal-open" role="document">
+            <div class="modal-confirm modal-content-top-50" style="font-size:12px;">
+                <div class="p-1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group row pb-4">
+                                <div class="align-content-center text-center mt-4 font-size-cus">
+                                    @Messages.Question.MSGQ0001
+                                </div>
+                            </div>
+                            <div class="d-grid gap-5 d-md-flex justify-content-center mt-2 pb-2">
+                                <Button Class="btn-pink" @onclick="Confirm">
+                                    @Common.Label.DELETE_TITLE
+                                </Button>
+                                <Button Color="ButtonColor.Primary" Outline="true" @onclick="Hide">
+                                    @Common.Label.CANCEL
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public EventCallback<EmployeesModel> ConfirmCallBack { get; set; }
+    [Parameter]
+    public EventCallback<EmployeesModel> CancelCallBack { get; set; }
+    [Parameter]
+    public bool show { get; set; }
+    [Parameter]
+    public string? state { get; set; }
+
+    public async Task Hide()
+    {
+        await CancelCallBack.InvokeAsync();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task Confirm()
+    {
+        await ConfirmCallBack.InvokeAsync();
+        await InvokeAsync(StateHasChanged);
+    }
+}

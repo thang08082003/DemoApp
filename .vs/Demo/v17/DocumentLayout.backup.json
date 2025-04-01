@@ -1,0 +1,189 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\DemoApp\\DemoApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|d:\\demoapp\\demoapp\\demoshared\\models\\entities\\accountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|solutionrelative:demoshared\\models\\entities\\accountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|d:\\demoapp\\demoapp\\demoshared\\models\\callbackmodels\\errorresboolmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|solutionrelative:demoshared\\models\\callbackmodels\\errorresboolmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|d:\\demoapp\\demoapp\\demoshared\\constants\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|solutionrelative:demoshared\\constants\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|d:\\demoapp\\demoapp\\demoshared\\constants\\messages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|solutionrelative:demoshared\\constants\\messages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|d:\\demoapp\\demoapp\\demoshared\\constants\\navigation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|solutionrelative:demoshared\\constants\\navigation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|d:\\demoapp\\demoapp\\demoshared\\models\\entities\\approlesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{870254B1-881D-493C-8BD5-4BF65C990134}|DemoShared\\DemoShared.csproj|solutionrelative:demoshared\\models\\entities\\approlesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F08F8D4-2144-47F2-B974-969E64E34962}|DemoWeb\\DemoWeb.csproj|d:\\demoapp\\demoapp\\demoweb\\layout\\loginlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F08F8D4-2144-47F2-B974-969E64E34962}|DemoWeb\\DemoWeb.csproj|solutionrelative:demoweb\\layout\\loginlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F08F8D4-2144-47F2-B974-969E64E34962}|DemoWeb\\DemoWeb.csproj|d:\\demoapp\\demoapp\\demoweb\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F08F8D4-2144-47F2-B974-969E64E34962}|DemoWeb\\DemoWeb.csproj|solutionrelative:demoweb\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F08F8D4-2144-47F2-B974-969E64E34962}|DemoWeb\\DemoWeb.csproj|d:\\demoapp\\demoapp\\demoweb\\pages\\information\\component\\modal\\changepaswwordmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F08F8D4-2144-47F2-B974-969E64E34962}|DemoWeb\\DemoWeb.csproj|solutionrelative:demoweb\\pages\\information\\component\\modal\\changepaswwordmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F08F8D4-2144-47F2-B974-969E64E34962}|DemoWeb\\DemoWeb.csproj|d:\\demoapp\\demoapp\\demoweb\\pages\\master\\component\\modal\\employeemodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F08F8D4-2144-47F2-B974-969E64E34962}|DemoWeb\\DemoWeb.csproj|solutionrelative:demoweb\\pages\\master\\component\\modal\\employeemodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1034,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EmployeeModal.razor",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoWeb\\Pages\\Master\\Component\\Modal\\EmployeeModal.razor",
+              "RelativeDocumentMoniker": "DemoWeb\\Pages\\Master\\Component\\Modal\\EmployeeModal.razor",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoWeb\\Pages\\Master\\Component\\Modal\\EmployeeModal.razor*",
+              "RelativeToolTip": "DemoWeb\\Pages\\Master\\Component\\Modal\\EmployeeModal.razor*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T00:17:10.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChangePaswwordModal.razor",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoWeb\\Pages\\Information\\Component\\Modal\\ChangePaswwordModal.razor",
+              "RelativeDocumentMoniker": "DemoWeb\\Pages\\Information\\Component\\Modal\\ChangePaswwordModal.razor",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoWeb\\Pages\\Information\\Component\\Modal\\ChangePaswwordModal.razor*",
+              "RelativeToolTip": "DemoWeb\\Pages\\Information\\Component\\Modal\\ChangePaswwordModal.razor*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T00:16:14.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ErrorResBoolModel.cs",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoShared\\Models\\CallBackModels\\ErrorResBoolModel.cs",
+              "RelativeDocumentMoniker": "DemoShared\\Models\\CallBackModels\\ErrorResBoolModel.cs",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoShared\\Models\\CallBackModels\\ErrorResBoolModel.cs",
+              "RelativeToolTip": "DemoShared\\Models\\CallBackModels\\ErrorResBoolModel.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T00:14:16.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Common.cs",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoShared\\Constants\\Common.cs",
+              "RelativeDocumentMoniker": "DemoShared\\Constants\\Common.cs",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoShared\\Constants\\Common.cs",
+              "RelativeToolTip": "DemoShared\\Constants\\Common.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T00:14:09.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginLayout.razor",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoWeb\\Layout\\LoginLayout.razor",
+              "RelativeDocumentMoniker": "DemoWeb\\Layout\\LoginLayout.razor",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoWeb\\Layout\\LoginLayout.razor",
+              "RelativeToolTip": "DemoWeb\\Layout\\LoginLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T14:22:32.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppRolesModel.cs",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoShared\\Models\\Entities\\AppRolesModel.cs",
+              "RelativeDocumentMoniker": "DemoShared\\Models\\Entities\\AppRolesModel.cs",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoShared\\Models\\Entities\\AppRolesModel.cs",
+              "RelativeToolTip": "DemoShared\\Models\\Entities\\AppRolesModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T15:05:09.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Navigation.cs",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoShared\\Constants\\Navigation.cs",
+              "RelativeDocumentMoniker": "DemoShared\\Constants\\Navigation.cs",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoShared\\Constants\\Navigation.cs",
+              "RelativeToolTip": "DemoShared\\Constants\\Navigation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T14:17:55.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Messages.cs",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoShared\\Constants\\Messages.cs",
+              "RelativeDocumentMoniker": "DemoShared\\Constants\\Messages.cs",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoShared\\Constants\\Messages.cs",
+              "RelativeToolTip": "DemoShared\\Constants\\Messages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T14:15:17.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountModel.cs",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoShared\\Models\\Entities\\AccountModel.cs",
+              "RelativeDocumentMoniker": "DemoShared\\Models\\Entities\\AccountModel.cs",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoShared\\Models\\Entities\\AccountModel.cs",
+              "RelativeToolTip": "DemoShared\\Models\\Entities\\AccountModel.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAASwBgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T14:22:09.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Home.razor",
+              "DocumentMoniker": "D:\\DemoApp\\DemoApp\\DemoWeb\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "DemoWeb\\Pages\\Home.razor",
+              "ToolTip": "D:\\DemoApp\\DemoApp\\DemoWeb\\Pages\\Home.razor",
+              "RelativeToolTip": "DemoWeb\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T14:25:27.96Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+@DemoWebApi_HostAddress = https://localhost:7276
+
+GET {{DemoWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{DemoWebApi_HostAddress}}/weatherforecast
+
+###
+
+POST {{DemoWebApi_HostAddress}}/api/company
+Content-Type: application/json
+
+{
+  //Company
+}
+
+###
+
+GET {{DemoWebApi_HostAddress}}/api/company
+
+###
+
+GET {{DemoWebApi_HostAddress}}/api/employee
+
+###
+
+
+GET {{DemoWebApi_HostAddress}}/api/employee/getAll
+
+###
+
+GET {{DemoWebApi_HostAddress}}/api/employee/getAll
+
+###
+
+GET {{DemoWebApi_HostAddress}}/api/company/getAll
+
+###
+
+POST {{DemoWebApi_HostAddress}}/api/account/isExist
+Content-Type: application/json
+
+{
+  //AccountParam
+}
+
+###
+
+POST {{DemoWebApi_HostAddress}}/api/fileupload/FileUpload
+
+###
+
+POST {{DemoWebApi_HostAddress}}/fileupload/FileUpload
+
+###

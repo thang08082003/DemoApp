@@ -1,0 +1,10 @@
+wwwroot\appsettings.json
+wwwroot\css\app.css
+wwwroot\css\site.css
+wwwroot\favicon.png
+wwwroot\FileUpload.js
+wwwroot\icon-192.png
+wwwroot\index.html
+wwwroot\inputfile.js
+wwwroot\sample-data\weather.json
+wwwroot\TogglePassWord.js

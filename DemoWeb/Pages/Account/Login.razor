@@ -1,0 +1,131 @@
+﻿@layout LoginLayout
+@page "/"
+
+@using DemoShared.Models.Entities;
+@using DemoShared.Constants;
+@using DemoWeb.Services.API;
+@using DemoWeb.Services;
+@using static DemoShared.Constants.Navigation
+@inject NavigationManager navigation
+
+<div class="login-container">
+    <div class="login-row login-justify-content-center">
+        <div class="login-col-md-7">
+            <div class="login-wrap login-p-4 login-p-md-5">
+                <div class="login-header">
+                    <p>@Common.Label.NAME_MAIN</p>
+                </div>
+                <form class="login-form">
+                    <div class="login-form-group">
+                        <div class="icon login-d-flex login-align-items-center login-justify-content-center">
+                            <span class="bi bi-person-fill"></span>
+                        </div>
+                        <input type="text" class="login-form-control login-rounded-left" placeholder="使用者ID" @bind-value="@userNameValue" />
+                    </div>
+                    <div class="login-form-group">
+                        <div class="icon login-d-flex login-align-items-center login-justify-content-center">
+                            <span class="bi bi-key-fill"></span>
+                        </div>
+                        <input type="password" class="login-form-control login-rounded-left" placeholder="パスワードID" @bind-value="@passWordValue" id="passwordValue" />
+                        <button type="button" class="cus-icon" id="toggleButton" onclick="togglePasswordVisibility('passwordValue','toggleButton')">
+                            <i class="bi bi-eye-fill"></i>
+                        </button>
+                    </div>
+                    <div class="login-form-group text-danger">
+                        @err_login
+                    </div>
+                    <div class="d-grid gap-2">
+                        <Button Color="ButtonColor.Primary" Type="ButtonType.Button" @onclick="BtnLoginOnclick">@Common.Label.LOGIN</Button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    #region Inject
+    [Inject]
+    IAccountConnection? iac { get; set; }
+    [Inject]
+    IRedirectService? irs { get; set; }
+    #endregion
+
+    #region Object
+    public AccountModel? account { get; set; }
+    #endregion
+
+    #region Variable
+    private string? userNameValue;
+    private string? passWordValue;
+    private bool inValidLogin { get; set; }
+    private string err_login => inValidLogin ? Messages.Error.MSGE0001 : string.Empty;
+    #endregion
+
+    #region Function
+    /// <summary>
+    ///
+    /// </summary>
+    /// <returns></returns>
+    public async Task BtnLoginOnclick()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(userNameValue) || string.IsNullOrEmpty(passWordValue))
+            {
+                inValidLogin = true;
+                return;
+            }
+            else
+            {
+                // lấy thông tin theo tài khoản đăng nhập
+                account = await iac!.getIdByUserName(userNameValue!, passWordValue!);
+
+                // Phân quyền theo user đăng nhập
+                var UserAccount = await iac.getUserLogin(account.emp_no);
+                Dictionary<string, string> sendData = new Dictionary<string, string>()
+                {
+                    {
+                        QueryKey.USER_ID, account.emp_no
+                    }
+                };
+                if (account.emp_no != null)
+                {
+                    if (UserAccount.roleId.Equals(Common.Role.ADMIN))
+                    {
+                        // màn hình admin
+                        irs!.RedirectParameter("/EmployeeMaster", sendData);
+                    }
+                    else
+                    {
+                        // màn hình user
+                        irs!.RedirectParameter("/EmployeeInformation", sendData);
+                    }
+                }
+                else
+                {
+                    inValidLogin = true;
+                    return;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+        await InvokeAsync(StateHasChanged);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns></returns>
+    public static string Encode(string text)
+    {
+        return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text)).TrimEnd('=').Replace('+', '-')
+            .Replace('/', '_');
+    }
+    #endregion
+}

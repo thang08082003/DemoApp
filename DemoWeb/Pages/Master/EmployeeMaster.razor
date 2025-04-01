@@ -1,0 +1,181 @@
+﻿@page "/EmployeeMaster"
+@using DemoShared.Constants;
+@using DemoShared.Models.Entities
+@using DemoWeb.Pages.Master.Component.Modal;
+
+<div class="content-area2 maxheight">
+    <div class="card card-cus-size-width mb-4">
+        <div class="card-header">
+            @Common.Header.EMPLOYEE_MASTER_MANAGEMENT
+        </div>
+        <div class="card-body mt-3">
+            <div class="form-group row pb-2">
+                <label class="col-sm-3">
+                    @COMPANY_MASTER_MANAGEMENT
+                </label>
+            </div>
+            <div class="form-group row pb-2">
+                <label class="col-sm-5 ms-3">
+                    <label class="upload control-wrapper lib keybroad form-control">
+                        <Button Color="ButtonColor.Primary" @onclick="() => ImportFileOnClick()">@Common.Label.REFERRENCE</Button>
+                        <InputFile multiple id="@ROLE_UPLOAD_INFO" OnChange="HandleFileSelected" Accept=".csv, text/csv"
+                        class="cus-control cus-uploader" style="display: none"/>
+                        <input class="cus-input" value="@FileName" disabled/>
+                    </label>
+                </label>
+                <lable class="col-sm-3"></lable>
+                <label class="col-sm-3">
+                    <lable class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        @if (empImportLst.Count == Common.LIST_EMPTY || isDisableImport)
+                        {
+                            <Button Color="ButtonColor.Primary" Disabled>@Common.Label.LOAD_IMP</Button>
+                        }
+                        else
+                        {
+                            <Button Color="ButtonColor.Primary" @onclick="() => BtnConfirmDataOnclick()">@Common.Label.LOAD_IMP</Button>
+                        }
+                        <Button Color="ButtonColor.Primary" Outline="true" @onclick="() => BtnResetOnClick()">@Common.Label.CANCEL</Button>
+                    </lable>
+                </label>
+            </div>
+            <label class="form-group row pb-2">
+                <label class="col-sm-5 ms-3 text-danger">
+                    @err_invalidValueImport
+                </label>
+            </label>
+            <div class="form-group row pb-2">
+                <label class="col-sm-3">
+                    @SEARCH
+                </label>
+            </div>
+            <div class="form-group row pb-5">
+                <label class="col-sm-2 ms-3 mt-2">
+                    @NAME_KATA
+                </label>
+                <label class="col-sm-3">
+                    <input type="text" value="@SearchNameValue" @onchange="FullNameOnChanged" class="form-control" id="name_kata">
+                </label>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2 pb-2">
+                @if (isDisableDelButton || isImport)
+                {
+                    <Button Class="btn-pink" Disabled>@Common.Label.DELETE</Button>
+                }
+                else
+                {
+                    <Button Class="btn-pink" @onclick="() => BtnOpenModalOnClick()">@Common.Label.DELETE</Button>
+                }
+                @if (isImport)
+                {
+                    <Button Color="ButtonColor.Primary" Disabled>@Common.Label.ADD</Button>
+                }
+                else
+                {
+                    <Button Color="ButtonColor.Primary" @onclick="() => BtnCreatOnClick()">@Common.Label.ADD</Button>
+                }
+                
+            </div>
+            <div class="form-group row pb-2">
+                @if (isImport)
+                {
+                    <Grid TItem="EmployeesModel"
+                          Class="table table-hover table-bordered"
+                          AllowSelection="false"
+                          AllowSorting="true"
+                          SelectionMode="GridSelectionMode.Multiple"
+                          HeaderRowCssClass="bg-secondary bg-opacity-10 border-bottom-0"
+                          SelectedItemsChanged="OnSelectedItemsChanged"
+                          Responsive="true"
+                          Data="empImportLst"
+                          EmptyText="No records to display">
+                        <GridColumn TItem="EmployeesModel" HeaderText=@TECH_ID PropertyName="employee_id" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.emp_no">
+                            @context.emp_no
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@COMPANY_NUMBER PropertyName="company_name" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.company_name">
+                            @context.company_name
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@IDENTITY PropertyName="employee_name" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.emp_name">
+                            @context.emp_name
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@NAME_KATANA PropertyName="name_kana" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.emp_name_kana">
+                            @context.emp_name_kana
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@GENDER PropertyName="gender" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.sex">
+                            @context.sex
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@REGIST_BY PropertyName="created_by" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.created_at">
+                            @context.created_by
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@UPDATE_BY PropertyName="updated_by" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.updated_at">
+                            @context.updated_by
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@DATE_BIRTH PropertyName="birthday" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.birthday">
+                            @context.birthday
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@DATE_HIRE PropertyName="hire_date" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.hire_date">
+                            @context.hire_date
+                        </GridColumn>
+                    </Grid>
+                }
+                else
+                {
+                    <Grid TItem="EmployeesModel"
+                          Class="table table-hover table-bordered"
+                          AllowSelection="true"
+                          AllowSorting="true"
+                          SelectionMode="GridSelectionMode.Multiple"
+                          HeaderRowCssClass="bg-secondary bg-opacity-10 border-bottom-0"
+                          SelectedItemsChanged="OnSelectedItemsChanged"
+                          Responsive="true"
+                          Data="employeeLst"
+                          EmptyText="No records to display">
+                        <GridColumn TItem="EmployeesModel" HeaderText=@TECH_ID PropertyName="employee_id" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.emp_no">
+                            @context.emp_no
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@COMPANY_NUMBER PropertyName="company_name" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.company_name">
+                            @context.company_name
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@IDENTITY PropertyName="employee_name" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.emp_name">
+                            @context.emp_name
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@NAME_KATANA PropertyName="name_kana" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.emp_name_kana">
+                            @context.emp_name_kana
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@GENDER PropertyName="gender" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.sex">
+                            @context.sex
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@REGIST_BY PropertyName="created_by" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.created_at">
+                            @context.created_by
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@UPDATE_BY PropertyName="updated_by" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.updated_at">
+                            @context.updated_by
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@DATE_BIRTH PropertyName="birthday" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.birthday">
+                            @context.birthday
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" HeaderText=@DATE_HIRE PropertyName="hire_date" HeaderTextAlignment="Alignment.Center" SortKeySelector="item => item.hire_date">
+                            @context.hire_date
+                        </GridColumn>
+                        <GridColumn TItem="EmployeesModel" TextAlignment="Alignment.Center">
+                            <Button Color="ButtonColor.Primary" @onclick="() => BtnDetailOnclick(context)">@Common.Label.EDIT</Button>
+                        </GridColumn>
+                    </Grid>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<ConfirmModal show="@isShowModal"
+              ConfirmCallBack="@ConfirmCallBack"
+              CancelCallBack="@CancelCallBack">
+</ConfirmModal>
+
+<EmployeeModal show="@isShowEmpModal"
+               state="@actionState"
+               employeesModel="@modalTrans"
+               companyLst="@companyLst"
+               UserLogin="@userId"
+               ConfirmCallBack="@ConfirmEmpCallBack"
+               CancelCallBack="@CancelEmpCallBack">
+</EmployeeModal>
+

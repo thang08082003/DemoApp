@@ -1,0 +1,25 @@
+﻿@inherits LayoutComponentBase
+@using DemoShared.Constants;
+
+<div class="page">
+    <div class="sidebar" style="height: @height">
+        <div class="sidebar-navmenu">
+            <NavMenu @ref="navMenu" />
+        </div>
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="" class="text-decoration-none">
+                <Icon CustomIconName="bi bi-box-arrow-left" />@Common.Label.LOG_OUT
+            </a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+        <div class="bottom-row px-0 mx-0" style="display: @display">
+            <p>@(Common.SYSTEM_COPYRIGHT)</p>
+        </div>
+    </main>
+</div>

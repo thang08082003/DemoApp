@@ -1,0 +1,95 @@
+﻿@page "/EmployeeInformation"
+@using DemoShared.Constants;
+@using DemoShared.Models.Entities
+@using DemoWeb.Pages.Information.Component.Modal
+
+<div class="content-area2 maxheight">
+    <div class="card card-cus-size-width mb-4">
+        <div class="card-header">
+            @Common.Header.EMPLOYEE_MASTER_MANAGEMENT
+        </div>
+        <div class="card-body mt-3">
+            <div class="form-group row pb-2">
+                <label class="col-sm-3">
+                    @EMPLOYEE_INFORMATION
+                </label>
+            </div>
+            <div class="form-group row pb-4">
+                <label class="col-sm-2 mt-1">
+                    @if (showImage)
+                    {
+                        <img src="@employeePath!.imageUrl" class="image" />
+                    }
+                    else
+                    {
+                        @if (!hiddenImg)
+                        {
+                            <img src="@ImageUrl" class="image" />
+                        }
+                    }
+                    <InputFile class="form-control" OnChange="@((e) => HandleFileSelected(e))" multiple />
+                </label>
+                <label class="col-sm-2" style="margin-top: 7rem !important">
+                    @if (isDisableUpload)
+                    {
+                        <Button Color="ButtonColor.Primary" Disabled>@Common.Label.UPLOAD_IMG</Button>
+                    }
+                    else
+                    {
+                        <Button Color="ButtonColor.Primary" @onclick="() => btnUploadOnClick()">@Common.Label.UPLOAD_IMG</Button>
+                    }
+                </label>
+            </div>
+            <div class="form-group row pb-2">
+                <Grid TItem="EmployeesModel"
+                      Class="table table-hover table-bordered"
+                      AllowSelection="false"
+                      AllowSorting="false"
+                      SelectionMode="GridSelectionMode.Multiple"
+                      HeaderRowCssClass="bg-secondary bg-opacity-10 border-bottom-0"
+                      SelectedItemsChanged="OnSelectedItemsChanged"
+                      Responsive="true"
+                      Data="employees"
+                      EmptyText="No records to display">
+
+                    <GridColumn TItem="EmployeesModel" HeaderText=@TECH_ID PropertyName="employee_id" HeaderTextAlignment="Alignment.Center">
+                        @context.emp_no
+                    </GridColumn>
+                    <GridColumn TItem="EmployeesModel" HeaderText=@COMPANY_NUMBER PropertyName="company_name" HeaderTextAlignment="Alignment.Center">
+                        @context.company_name
+                    </GridColumn>
+                    <GridColumn TItem="EmployeesModel" HeaderText=@IDENTITY PropertyName="employee_name" HeaderTextAlignment="Alignment.Center">
+                        @context.emp_name
+                    </GridColumn>
+                    <GridColumn TItem="EmployeesModel" HeaderText=@NAME_KATANA PropertyName="name_kana" HeaderTextAlignment="Alignment.Center">
+                        @context.emp_name_kana
+                    </GridColumn>
+                    <GridColumn TItem="EmployeesModel" HeaderText=@GENDER PropertyName="gender" HeaderTextAlignment="Alignment.Center">
+                        @context.sex
+                    </GridColumn>
+                    <GridColumn TItem="EmployeesModel" HeaderText=@REGIST_BY PropertyName="created_by" HeaderTextAlignment="Alignment.Center">
+                        @context.created_at
+                    </GridColumn>
+                    <GridColumn TItem="EmployeesModel" HeaderText=@UPDATE_BY PropertyName="updated_by" HeaderTextAlignment="Alignment.Center">
+                        @context.updated_at
+                    </GridColumn>
+                    <GridColumn TItem="EmployeesModel" HeaderText=@DATE_BIRTH PropertyName="birthday" HeaderTextAlignment="Alignment.Center">
+                        @context.birthday
+                    </GridColumn>
+                    <GridColumn TItem="EmployeesModel" HeaderText=@DATE_HIRE PropertyName="hire_date" HeaderTextAlignment="Alignment.Center">
+                        @context.hire_date
+                    </GridColumn>
+                    <GridColumn TItem="EmployeesModel" TextAlignment="Alignment.Center">
+                        <Button Color="ButtonColor.Primary" @onclick="() => btnChangePaswordOnclick(employeePath!)">@Common.Label.EDIT</Button>
+                    </GridColumn>
+                </Grid>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ChangePaswwordModal show="@isShowEmpModal"
+               employeesModel="@employeePath"
+               ConfirmCallBack="@ConfirmEmpCallBack"
+               CancelCallBack="@CancelEmpCallBack">
+</ChangePaswwordModal>

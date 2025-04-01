@@ -1,0 +1,234 @@
+﻿@using DemoShared.Models.Entities;
+@using DemoShared.Constants;
+@using DemoWeb.Services.API;
+@using DemoShared.Models.DTO;
+
+@if (show)
+{
+    <div class="modal modal_overlay show d-block" tabindex="-1" role="dialog">
+        <div class="modal-dialog card-cus-size-center-width-650 fade-modal-open" role="document">
+            <div class="modal-content modal-content-top-50" style="font-size:12px;">
+                <div class="modal-header pt-2 pb-2 cus-color">
+                    <h5 class="modal-title">
+                        @Common.Header.CHANGE_PASSWORD
+                    </h5>
+                </div>
+                <div class="p-4">
+                    <div class="row">
+                        <div class="col-sm-1">
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="form-group row pb-2">
+                                <label class="col-sm-3 p-0 mt-2">
+                                    @OLD_PASS
+                                    <span class="required">*</span>
+                                </label>
+                                <label class="col-sm-8 p-0">
+                                    <input type="password" @bind-value="@oldPassValue" class="form-control" id="oldPass" maxlength="20">
+                                    <button type="button" class="cus-icon-old" id="toggleButtonOld" onclick="togglePasswordVisibility('oldPass','toggleButtonOld')">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </button>
+                                </label>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 p-0 mt-2">
+                                </label>
+                                <label class="col-sm-8 p-0 pb-2 text-danger">
+                                    @err_oldPassCheck
+                                    @err_invalidPassCheck
+                                </label>
+                            </div>
+                            <div class="form-group row pb-2">
+                                <label class="col-sm-3 p-0 mt-2">
+                                    @NEW_PASS
+                                    <span class="required">*</span>
+                                </label>
+                                <label class="col-sm-8 p-0">
+                                    <input type="password" @bind-value="@newPassValue" class="form-control" id="newPass" maxlength="20">
+                                    <button type="button" class="cus-icon-new" id="toggleButtonNew" onclick="togglePasswordVisibility('newPass','toggleButtonNew')">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </button>
+                                </label>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 p-0 mt-2">
+                                </label>
+                                <label class="col-sm-8 p-0 pb-2 text-danger">
+                                    @err_NewPassCheck
+                                </label>
+                            </div>
+                            <div class="form-group row pb-2">
+                                <label class="col-sm-3 p-0 mt-2">
+                                    @CONFIRM_PASS
+                                    <span class="required">*</span>
+                                </label>
+                                <label class="col-sm-8 p-0 pb-2">
+                                    <input type="password" @bind-value="@confirmPassValue" class="form-control" id="confirmPass" maxlength="20">
+                                    <button type="button" class="cus-icon-confirm" id="toggleButtonConfirm" onclick="togglePasswordVisibility('confirmPass','toggleButtonConfirm')">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </button>
+                                </label>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 p-0 mt-2">
+                                </label>
+                                <label class="col-sm-8 p-0 pb-2 text-danger">
+                                    @err_ConfirmPassCheck
+                                    @err_notmactchingPassCheck
+                                </label>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2 pb-2 me-5">
+                                <Button Color="ButtonColor.Primary" Class="col-sm-2" @onclick=BtnChangePassWord>
+                                    @Common.Label.CHANGE
+                                </Button>
+                                <Button Color="ButtonColor.Primary" Outline="true" @onclick="BtnCancelClick">
+                                    @Common.Label.CANCEL
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+}
+
+@code {
+    #region Inject
+    [Inject]
+    IEmployeesConnection? iec { get; set; }
+    [Inject]
+    ICompanyConnection? icc { get; set; }
+    [Inject]
+    IAccountConnection? iac { get; set; }
+    #endregion
+    #region Transfer data Object
+    [Parameter]
+    public EventCallback<EmployeesModel> ConfirmCallBack { get; set; }
+    [Parameter]
+    public EventCallback<EmployeesModel> CancelCallBack { get; set; }
+    [Parameter]
+    public bool show { get; set; }
+    [Parameter]
+    public EmployeesModel? employeesModel { get; set; }
+    #endregion
+
+    #region Object
+
+    #endregion
+
+    #region Variable
+    private string? oldPassValue;
+    private string? newPassValue;
+    private string? confirmPassValue;
+    private bool invalidOldPass = false;
+    private bool isEmptyOldPass = false;
+    private bool isEmptyNewPass = false;
+    private bool isEmptyConfirmPass = false;
+    private bool notMatiching = false;
+    private string err_oldPassCheck => isEmptyOldPass ? Messages.Information.MSGI0003(OLD_PASS) : string.Empty;
+    private string err_NewPassCheck => isEmptyNewPass ? Messages.Information.MSGI0003(NEW_PASS) : string.Empty;
+    private string err_ConfirmPassCheck => isEmptyConfirmPass ? Messages.Information.MSGI0003(CONFIRM_PASS) : string.Empty;
+    private string err_invalidPassCheck => invalidOldPass ? Messages.Error.MSGE0007(CONFIRM_PASS) : string.Empty;
+    private string err_notmactchingPassCheck => notMatiching ? NOT_MATCH : string.Empty;
+    #endregion
+
+    #region Const
+    private const string OLD_PASS = "Old Password";
+    private const string NEW_PASS = "New Password";
+    private const string CONFIRM_PASS = "Confirm Password";
+    private const string NOT_MATCH = "Passwords do not match";
+    #endregion
+
+    #region Function
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public async Task BtnCancelClick()
+    {
+        ResetValidate();
+        await CancelCallBack.InvokeAsync();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public async Task BtnChangePassWord()
+    {
+        var employee = await iac!.getUserLogin(employeesModel!.emp_no);
+        if (string.IsNullOrEmpty(oldPassValue))
+        {
+            isEmptyOldPass = true;
+
+        }
+
+        if (string.IsNullOrEmpty(newPassValue))
+        {
+            isEmptyNewPass = true;
+        }
+
+        if (string.IsNullOrEmpty(confirmPassValue))
+        {
+            isEmptyConfirmPass = true;
+        }
+
+        if (isEmptyOldPass || isEmptyNewPass || isEmptyConfirmPass)
+        {
+            return;
+        }
+
+        if (Encode(oldPassValue!) != employee.passWord)
+        {
+            invalidOldPass = true;
+        }
+
+        if (newPassValue != confirmPassValue)
+        {
+            notMatiching = true;
+        }
+
+        if (invalidOldPass || notMatiching)
+        {
+            return;
+        }
+
+        var account = await iac.getPattById(employeesModel!.emp_no);
+        account.password = (newPassValue!);
+        var res = await iac.Update(account);
+        ResetValidate();
+        await ConfirmCallBack.InvokeAsync();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void ResetValidate()
+    {
+        oldPassValue = string.Empty;
+        newPassValue = string.Empty;
+        confirmPassValue = string.Empty;
+        invalidOldPass = false;
+        isEmptyOldPass = false;
+        isEmptyNewPass = false;
+        isEmptyConfirmPass = false;
+        notMatiching = false;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns></returns>
+    public static string Encode(string text)
+    {
+        return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text)).TrimEnd('=').Replace('+', '-')
+            .Replace('/', '_');
+    }
+    #endregion
+
+}

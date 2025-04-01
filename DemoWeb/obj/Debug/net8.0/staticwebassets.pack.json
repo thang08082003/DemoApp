@@ -1,0 +1,73 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DemoWeb.styles.css",
+      "PackagePath": "staticwebassets\\DemoWeb.styles.css"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\FileUpload.js",
+      "PackagePath": "staticwebassets\\FileUpload.js"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\TogglePassWord.js",
+      "PackagePath": "staticwebassets\\TogglePassWord.js"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\inputfile.js",
+      "PackagePath": "staticwebassets\\inputfile.js"
+    },
+    {
+      "Id": "D:\\DemoApp\\DemoApp\\DemoWeb\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DemoWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DemoWeb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.DemoWeb.props",
+      "PackagePath": "build\\DemoWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.DemoWeb.props",
+      "PackagePath": "buildMultiTargeting\\DemoWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.DemoWeb.props",
+      "PackagePath": "buildTransitive\\DemoWeb.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

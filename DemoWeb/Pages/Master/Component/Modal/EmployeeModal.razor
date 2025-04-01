@@ -1,0 +1,244 @@
+﻿@using DemoShared.Models.Entities;
+@using DemoShared.Constants;
+@using DemoWeb.Services.API;
+
+
+@if (show)
+{
+    <EditForm Model="@employeesModel" OnValidSubmit="() => BtnActionClick(state!)">
+        <DataAnnotationsValidator />
+        <div class="modal modal_overlay show d-block" tabindex="-1" role="dialog">
+            <div class="modal-dialog card-cus-size-center-width-650 fade-modal-open" role="document">
+                <div class="modal-content modal-content-top-50" style="font-size:12px;">
+                    <div class="modal-header pt-2 pb-2 cus-color">
+                        <h5 class="modal-title">
+                            @Common.Header.NEW_ADDITION
+                        </h5>
+                    </div>
+                    <div class="p-4">
+                        <div class="row">
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="col-sm-11">
+                                <div class="form-group row pb-2">
+                                    <label class="col-sm-3 p-0 mt-2">
+                                        @EMP_ID
+                                        <span class="required">*</span>
+                                    </label>
+                                    <label class="col-sm-8 p-0">
+                                        <input type="text" @bind-value="@employeesModel!.emp_no" class="form-control" id="employyee_id">
+                                    </label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 p-0 mt-2">
+                                    </label>
+                                    <label class="col-sm-8 p-0 pb-2">
+                                        <ValidationMessage For="@(() => employeesModel.emp_no)" />
+                                    </label>
+                                </div>
+                                <div class="form-group row pb-2">
+                                    <label class="col-sm-3 p-0 mt-2">
+                                        @CPN_NUMBER
+                                        <span class="required">*</span>
+                                    </label>
+                                    <label class="col-sm-8 p-0">
+                                        <select class="dropdown" @bind="@employeesModel.company_id">
+                                            <option value=@SELECT_COMPANY>@SELECT_COMPANY</option>
+                                            @foreach (var company in companyLst!)
+                                            {
+                                                <option value="@company.company_id">@($"{company.company_id} - {company.company_name}")</option>
+                                            }
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 p-0 mt-2">
+                                    </label>
+                                    <label class="col-sm-8 p-0 pb-2">
+                                        <ValidationMessage For="@(() => employeesModel.company_id)" />
+                                    </label>
+                                </div>
+                                <div class="form-group row pb-2">
+                                    <label class="col-sm-3 p-0 mt-2">
+                                        @FULL_NAME
+                                    </label>
+                                    <label class="col-sm-8 p-0 pb-2">
+                                        <input type="text" @bind-value="@employeesModel.emp_name" class="form-control" id="compaly_number">
+                                    </label>
+                                </div>
+                                <div class="form-group row pb-2">
+                                    <label class="col-sm-3 p-0 mt-2">
+                                        @NAME_KATA
+                                    </label>
+                                    <label class="col-sm-8 p-0 pb-2">
+                                        <input type="text" @bind-value="@employeesModel.emp_name_kana" class="form-control" id="compaly_number">
+                                    </label>
+                                </div>
+                                <div class="form-group row pb-2">
+                                    <label class="col-sm-3 p-0 mt-2">
+                                        @GENDER
+                                    </label>
+                                    <label class="col-sm-8 p-0 pb-2">
+                                        <select class="dropdown" @bind="employeesModel.sex">
+                                            <option value=@Common.GENDER.SELECT.value>@Common.GENDER.SELECT.name</option>
+                                            <option value=@Common.GENDER.MALE.value>@Common.GENDER.MALE.name</option>
+                                            <option value=@Common.GENDER.FEMALE.value>@Common.GENDER.FEMALE.name</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="form-group row pb-2">
+                                    <label class="col-sm-3 p-0 mt-2">
+                                        @BIRTH_DATE
+                                    </label>
+                                    <label class="col-sm-8 p-0 pb-2">
+                                        <DateInput TValue="DateTime?" @bind-Value="@employeesModel.birthday" EnableMinMax="true" Placeholder="Enter Date" />
+                                    </label>
+                                </div>
+                                <div class="form-group row pb-2">
+                                    <label class="col-sm-3 p-0 mt-2">
+                                        @HIRE_DATE
+                                    </label>
+                                    <label class="col-sm-8 p-0">
+                                        <DateInput TValue="DateTime?" @bind-Value="@employeesModel.hire_date" EnableMinMax="true" Placeholder="Enter Date" />
+                                    </label>
+                                </div>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2 pb-2 me-5">
+                                    @if (state!.Equals(Common.Action.INSERT))
+                                    {
+                                        <Button Color="ButtonColor.Primary" Class="col-sm-2" Type="ButtonType.Submit">
+                                            @Common.Label.INSERT
+                                        </Button>
+                                    }
+                                    else
+                                    {
+                                        <Button Color="ButtonColor.Primary" Class="col-sm-2" Type="ButtonType.Submit">
+                                            @Common.Label.UPDATE
+                                        </Button>
+                                    }
+                                    <Button Color="ButtonColor.Primary" Outline="true" @onclick="BtnCancelClick">
+                                        @Common.Label.CANCEL
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </EditForm>
+
+}
+
+@code {
+    #region Inject
+    [Inject]
+    IEmployeesConnection? iec { get; set; }
+    [Inject]
+    ICompanyConnection? icc { get; set; }
+    [Inject]
+    IAccountConnection? iac { get; set; }
+    [Inject]
+    IEmpRoleMappingsConnection? iermc { get; set; }
+    #endregion
+    #region Transfer data Object
+    [Parameter]
+    public EventCallback<EmployeesModel> ConfirmCallBack { get; set; }
+    [Parameter]
+    public EventCallback<EmployeesModel> CancelCallBack { get; set; }
+    [Parameter]
+    public bool show { get; set; }
+    [Parameter]
+    public string? state { get; set; }
+    [Parameter]
+    public EmployeesModel? employeesModel { get; set; }
+    [Parameter]
+    public List<CompanyModel>? companyLst { get; set; }
+    [Parameter]
+    public string? UserLogin { get; set; }
+    #endregion
+
+    #region Object
+
+    #endregion
+
+    #region Variable
+    private DateTime? BirthDate { get; set; }
+    private DateTime? HireDate { get; set; }
+
+    #endregion
+
+    #region Const
+    private const string EMP_ID = "Engineer ID";
+    private const string CPN_NUMBER = "Company Number";
+    private const string FULL_NAME = "Full Name";
+    private const string NAME_KATA = "Name (Katakana)";
+    private const string GENDER = "Gender";
+    private const string BIRTH_DATE = "Birth Date";
+    private const string HIRE_DATE = "Hire Date";
+    private const string DEFAULT_PASSWORD = "caV@.2023";
+    private const string USERNAME = "user";
+    private const string SELECT_COMPANY = "Select Company";
+
+    #endregion
+
+    #region Function
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public async Task BtnCancelClick()
+    {
+        await CancelCallBack.InvokeAsync();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="currentState"></param>
+    /// <returns></returns>
+    public async Task BtnActionClick(string currentState)
+    {
+        var employeePatt = await iac!.getUserLogin(UserLogin!);
+
+        if (currentState.Equals(Common.Action.INSERT))
+        {
+            // Tạo nhân viên mới
+            employeesModel!.created_by = employeePatt.empName;
+            var res = await iec!.Add(employeesModel!);
+
+            // Tạo tài khoản cho nhân viên vừa được thêm mới, mật khẩu mặc định là caV@.2023 và được lưu vào database dưới dạng encoding 64
+            var Account = new AccountModel();
+            Account.emp_no = employeesModel.emp_no;
+            Account.user_id = $"{USERNAME}{employeesModel.emp_no}";
+            Account.password = (DEFAULT_PASSWORD);
+            var resAccount = await iac.Add(Account);
+
+            // Xét quyền đăng nhập => mặc định là quyền user
+            var RoleApp = new EmpRoleMappingsModel();
+            RoleApp.emp_no = employeesModel.emp_no;
+            RoleApp.app_role_id = Common.Role.USER;
+            var resEmpRole = await iermc!.Add(RoleApp);
+        }
+        else
+        {
+            employeesModel!.updated_by = employeePatt.empName;
+            var res = await iec!.Update(employeesModel!);
+        }
+        await ConfirmCallBack.InvokeAsync(employeesModel);
+        await InvokeAsync(StateHasChanged);
+    }
+
+    /// <summary>
+    /// mã hóa mật khẩu sang dạng base 64
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns></returns>
+    public static string Encode(string text)
+    {
+        return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text)).TrimEnd('=').Replace('+', '-')
+            .Replace('/', '_');
+    }
+    #endregion
+
+}
